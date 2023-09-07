@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,6 +57,11 @@ Route::get('tampilantable', function () {
     $data = ['lampu', 'buku', 'meja', 'kursi', 'laptop', 'pensil'];
     return view('table', compact('data'));
 });
+
+Route::resource('siswa', SiswaController::class);
+
+// Route::get('siswa', [SiswaController::class, 'index']);
+// Route::get('tambahdata', [SiswaController::class, 'create']);
 
 // Route::get('users/{id}', function ($id) {});
 // Route::post('users/{id}', function ($id) {});

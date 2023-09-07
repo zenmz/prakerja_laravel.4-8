@@ -43,10 +43,16 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item {{ Request::is('template') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('template') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
+            </li>
+
+            <li class="nav-item @if (Request::is('tampilantable')) active @endif">
+                <a class="nav-link" href="{{ url('tampilantable') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Table</span></a>
             </li>
 
             <!-- Divider -->
@@ -145,7 +151,8 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="{{ asset('sb/img/undraw_rocket.svg') }}" alt="...">
+                <img class="sidebar-card-illustration mb-2" src="{{ asset('sb/img/undraw_rocket.svg') }}"
+                    alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components,
                     and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
@@ -279,7 +286,8 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('sb/img/undraw_profile_1.svg') }}" alt="...">
+                                        <img class="rounded-circle" src="{{ asset('sb/img/undraw_profile_1.svg') }}"
+                                            alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -290,7 +298,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('sb/img/undraw_profile_2.svg') }}" alt="...">
+                                        <img class="rounded-circle" src="{{ asset('sb/img/undraw_profile_2.svg') }}"
+                                            alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -301,7 +310,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('sb/img/undraw_profile_3.svg') }}" alt="...">
+                                        <img class="rounded-circle" src="{{ asset('sb/img/undraw_profile_3.svg') }}"
+                                            alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -335,7 +345,8 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="{{ asset('sb/img/undraw_profile.svg') }}">
+                                <img class="img-profile rounded-circle"
+                                    src="{{ asset('sb/img/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -368,6 +379,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    @include('flashmessage')
                     @yield('main')
                 </div>
                 <!-- /.container-fluid -->
