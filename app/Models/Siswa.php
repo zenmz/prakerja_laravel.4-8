@@ -11,6 +11,11 @@ class Siswa extends Model
 
     protected $table = 'siswa';
     protected $guarded = ['id'];
+
+    public function sekolah()
+    {
+        return $this->belongsTo(Sekolah::class);
+    }
     
     // protected $primaryKey = 'id_siswa';
     // protected $fillable = [
